@@ -1,0 +1,168 @@
+/**
+ * general style
+ */
+
+:root {
+  --primary-color: #f4f4f4;
+  --nav-color: #5b78c7;
+  --hover-color: #1942b4;
+  --bacground-color: rgba(37, 47, 80, 0.75);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  padding: 0.3rem;
+}
+
+/**
+ * nav bar style
+ */
+
+nav {
+  height: 10vh;
+  background: var(--nav-color);
+}
+/* ul li style */
+
+.nav-links {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  width: 50%;
+  align-items: center;
+  height: 100%;
+  /* put the element on the right side */
+  margin-left: auto;
+}
+
+.nav-links a:hover {
+  background: #1942b4;
+  width: 4rem;
+  height: 5rem;
+  border-radius: 20%;
+  color: #ffffff;
+}
+
+/**
+ * leanding section
+ */
+.landing {
+  position: relative;
+  background: var(--bacground-color);
+  height: 90vh;
+  color: #f4f4f4;
+}
+/* gost element */
+.landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('https://securecdn.pymnts.com/wp-content/uploads/2017/05/alternative-finance-lending-sme-cfpb-inquiry.jpg')
+    no-repeat center/cover;
+}
+
+/* flex ellemnts */
+
+.inner-element {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.landing h1 {
+  font-size: 6rem;
+}
+/**
+ * utility class
+ */
+.btn {
+  display: inline-block; /** alow to put width and height */
+  background: rgba(6, 91, 187, 0.85); /**the bacground of btn  */
+  color: #f4f4f4; /**the color of word on btn */
+  padding: 0.4rem 1.3rem; /**give a space or scale the btn around on 0.4rem up and down and 1.3rem left and right */
+  font-size: 1.8rem; /** increse the fotn of the text of btn */
+  text-align: center;
+  border: none;
+  cursor: pointer; /** to change the cursor when is hover on pointer */
+  outline: none;
+  border-radius: 10px; /** to make more round */
+  box-shadow: 0 1px rgba(0, 0, 0, 0.45); /**make shadow oround the btn */
+  transition: opacity 1s ease-in;
+}
+.btn:hover {
+  opacity: 0.9; /**to change the opacity from 0.45 to 0.9 */
+}
+.conteiner {
+  max-width: 70%; /*take the 70% of screen*/
+  margin: auto; /*push the content in the midle*/
+  overflow: hidden;
+  padding: 0 2rem; /*put some space to aside*/
+}
+
+@media screen and (max-width: 768px) {
+  /* links of the nav bar */
+  .nav-links {
+    position: absolute;
+    background: var(--nav-color);
+    height: 60vh;
+    width: 40%;
+    z-index: 2;
+    top: 90%;
+    right: 0;
+    flex-direction: column;
+    clip-path: circle(100px at 90% -10%);
+    -webkit-clip-path: circle(100px at 90% -30%);
+    transition: all 1s ease-out;
+  }
+  .nav-links.open {
+    clip-path: circle(800px at 90% -10%);
+    -webkit-clip-path: circle(800px at 90% -10%);
+  }
+
+  /* line of hamburger menu */
+  .line {
+    width: 30px;
+    height: 3px;
+    background: #f4f4f4;
+    margin: 5px;
+  }
+
+  /* postion of line in left side */
+  nav {
+    position: relative;
+    /* to alow to postiion the line apsoloute on it */
+  }
+  .hamburger {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+  }
+  .btn {
+    font-size: 1.3rem;
+  }
+  .landing h1 {
+    display: none;
+  }
+}
